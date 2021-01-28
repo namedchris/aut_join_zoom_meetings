@@ -1,5 +1,5 @@
 import datetime
-from datetime import timedelta, timezone ,datetime
+from datetime import timedelta, timezone
 import win32com.client
 import webbrowser
 
@@ -24,6 +24,7 @@ def schedule_zoom_meetings(calendar,scheduler):
 			task_def = scheduler.NewTask(0)
 			# I don't want to mess with pytz right now.
 			# I think win32.com may have functionality to do this as well
+			# Also, task scheduler has a setting to turn time zones on
 			start_time = appointment.start + timedelta(hours=6)
 			# Create trigger
 			TASK_TRIGGER_TIME = 1
